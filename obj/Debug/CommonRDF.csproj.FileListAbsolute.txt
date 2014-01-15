@@ -1,0 +1,12 @@
+D:\home\dev2012\CommonRDF\obj\Debug\CommonRDF.csprojResolveAssemblyReference.cache
+D:\home\dev2012\CommonRDF\bin\Debug\CommonRDF.exe
+D:\home\dev2012\CommonRDF\bin\Debug\CommonRDF.pdb
+D:\home\dev2012\CommonRDF\bin\Debug\PolarDB.dll
+D:\home\dev2012\CommonRDF\bin\Debug\PolarDB.pdb
+D:\home\dev2012\CommonRDF\obj\Debug\CommonRDF.exe
+D:\home\dev2012\CommonRDF\obj\Debug\CommonRDF.pdb
+F:\projects\CommonRDF1\obj\Debug\CommonRDF.exe
+F:\projects\CommonRDF1\obj\Debug\CommonRDF.pdb
+C:\Users\Admin\Source\Repos\SPARQL\obj\Debug\CommonRDF.exe
+C:\Users\Admin\Source\Repos\SPARQL\obj\Debug\CommonRDF.pdb
+C:\Users\Admin\Source\Repos\SPARQL\obj\Debug\CommonRDF.csprojResolveAssemblyReference.cache

@@ -1,0 +1,43 @@
+﻿cells initiated duration= 2
+After LoadQuads(). duration= 14576
+
+//первый запуск mag.Run() один из идентификаторов:
+ mag test 0  81
+ //рестарт и тот же идентификатор:
+ mag test 1  14
+ следующий запуск Run() с другим идентификатором:
+ mag test 2  33
+ рестарт, id не  меняется
+ mag test 3  13
+ Run() сново первый идентификатор
+ mag test 4  35
+ mag test 5  14
+ mag test 6  33
+ mag test 7  14
+ mag test 8  38
+ mag test 9  14
+cells initiated duration= 2
+After LoadQuads(). duration= 14799
+убрал выводы в консоль из mag.Run()
+ mag test 0  70
+ mag test 1  0
+ mag test 2  22
+ mag test 3  0
+ mag test 4  19
+ mag test 5  0
+ mag test 6  20
+ mag test 7  0
+ mag test 8  19
+ mag test 9  0
+cells initiated duration= 3
+After LoadQuads(). duration= 14265
+ mag test 0  71
+ mag test 1  0
+ mag test 2  19
+ mag test 3  0
+ mag test 4  19
+ mag test 5  0
+ mag test 6  19
+ mag test 7  0
+ mag test 8  21
+ mag test 9  0

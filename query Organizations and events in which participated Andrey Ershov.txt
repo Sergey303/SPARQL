@@ -1,0 +1,2 @@
+﻿select ?fd ?td ?orgname ?ro 
+where { ?s http://fogid.net/o/participant piu_200809051791. ?s http://fogid.net/o/in-org ?inorg. ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> http://fogid.net/o/participation. ?inorg http://fogid.net/o/name ?orgname. optional {?s http://fogid.net/o/from-date ?fd} optional {?s http://fogid.net/o/to-date ?td} optional {?s http://fogid.net/o/role ?ro} }

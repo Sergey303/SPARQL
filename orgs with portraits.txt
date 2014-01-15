@@ -1,0 +1,7 @@
+﻿select ?orgname
+where { ?org <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> http://fogid.net/o/org.
+	    ?org http://fogid.net/o/name ?orgname. 
+		?org http://fogid.net/o/in-org ?participation.
+		?participation http://fogid.net/o/participat ?person.
+		?person http://fogid.net/o/reflected ?reflection.
+		?reflection http://fogid.net/o/plan 'portrait'.}

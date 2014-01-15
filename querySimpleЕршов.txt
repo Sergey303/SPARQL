@@ -1,0 +1,2 @@
+﻿select ?person
+where { ?person http://fogid.net/o/name 'Ершов Андрей Петрович'. ?person ?p ?o.}
