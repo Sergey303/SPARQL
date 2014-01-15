@@ -10,3 +10,7 @@ F:\projects\CommonRDF1\obj\Debug\CommonRDF.pdb
 C:\Users\Admin\Source\Repos\SPARQL\obj\Debug\CommonRDF.exe
 C:\Users\Admin\Source\Repos\SPARQL\obj\Debug\CommonRDF.pdb
 C:\Users\Admin\Source\Repos\SPARQL\obj\Debug\CommonRDF.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Source\Repos\SPARQL\bin\Debug\CommonRDF.exe
+C:\Users\Admin\Source\Repos\SPARQL\bin\Debug\CommonRDF.pdb
+C:\Users\Admin\Source\Repos\SPARQL\bin\Debug\PolarDB.dll
+C:\Users\Admin\Source\Repos\SPARQL\bin\Debug\PolarDB.pdb
