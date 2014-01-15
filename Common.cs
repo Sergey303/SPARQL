@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq.Expressions;
 using System.Text.RegularExpressions;
 
 namespace CommonRDF
@@ -104,5 +105,11 @@ namespace CommonRDF
         {
             this.RegularExpression = regularExpression;
         }
+    }
+
+    class FilterSample : Sample
+    {
+        public Predicate<DescrVar[]> Expression;
+        public DescrVar[] parameters;
     }
 }
