@@ -19,7 +19,36 @@ namespace CommonRDF
         private DescrVar[] testvars = new DescrVar[0];
         public SimpleSparql(string id)
         {
-            testquery = new Sample[]
+
+            testquery = TestQueryBSBM_1();
+            testvars = descrVarsBSBM_1;
+        }
+
+        public bool Match(GraphBase gr, IReceiver receive)
+        {
+            Match(gr, 0, receive);
+            return Success;
+        }
+
+        public bool Success;
+
+        private static DescrVar[] DescrVarsPA(string id)
+        {
+            return new DescrVar[]
+            {
+                new DescrVar {isEntity = true, varName = "?s"},
+                new DescrVar {isEntity = true, varName = "?inorg"},
+                new DescrVar {isEntity = false, varName = "?orgname"},
+                new DescrVar {isEntity = false, varName = "?fd"},
+                //consts objects
+                new DescrVar {isEntity = true, varValue = id},
+                new DescrVar {isEntity = true, varValue = "http://fogid.net/o/participation"},
+            };
+        }
+
+        private static Sample[] TestQueryPA(string id)
+        {
+            return new Sample[]
             {
                 new Sample
                 {
@@ -62,30 +91,72 @@ namespace CommonRDF
                     obj = new TVariable {isVariable = true, value = "?fd", index = 3},
                     option = true
                 },
-                new FilterRegex(new Regex("^$", RegexOptions.Compiled|RegexOptions.CultureInvariant))
+                new FilterRegex(new Regex("^$", RegexOptions.Compiled | RegexOptions.CultureInvariant))
                 {
-                    subject = new TVariable{ isVariable = true, value = "?fd", index = 3}
+                    subject = new TVariable {isVariable = true, value = "?fd", index = 3}
                 }
             };
-            testvars = new DescrVar[] 
+        }
+        private static DescrVar[] descrVarsBSBM_1 = new DescrVar[] 
             {
-                new DescrVar { isEntity = true, varName="?s" },
-                new DescrVar { isEntity = true, varName="?inorg" },
-                new DescrVar { isEntity = false, varName="?orgname" },
-                new DescrVar { isEntity = false, varName="?fd" },
-                //consts objects
-                new DescrVar { isEntity = true, varValue =id },
-                new DescrVar { isEntity = true, varValue ="http://fogid.net/o/participation" },
+                new DescrVar { isEntity = true, varName="?product" },
+                new DescrVar { isEntity = true, varName="http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/ProductType15" },
+                new DescrVar { isEntity = true, varName="http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/ProductFeature80" },
+                new DescrVar { isEntity = true, varName="http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/ProductFeature102" },
+                new DescrVar { isEntity = false, varValue ="?value1" },
+                new DescrVar { isEntity = false, varValue ="?label" },
+            };
+        private static Sample[] TestQueryBSBM_1()
+        {
+            return new Sample[]
+            {
+                new Sample
+                {
+                    vid = TripletVid.op,
+                    firstunknown = 0,
+                    subject = new TVariable {isVariable = true, value = "?product", index = 0},
+                    predicate = new TVariable {isVariable = false, value = ONames.rdftypestring},
+                    obj = new TVariable {isVariable = false, value = "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/ProductType15", index = 1}
+                },
+                new Sample
+                {
+                    vid = TripletVid.op,
+                    firstunknown = 1,                 
+                    subject = new TVariable {isVariable = true, value = "?product", index = 0},
+                    predicate = new TVariable {isVariable = false, value = "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productFeature"},
+                    obj = new TVariable {isVariable = false, value = "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/ProductFeature80", index = 2}
+                },
+                new Sample
+                {
+                    vid = TripletVid.op,
+                    firstunknown = 2,
+                    subject = new TVariable {isVariable = true, value = "?product", index = 0},                 
+                    predicate = new TVariable {isVariable = false, value = "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productFeature"},
+                    obj = new TVariable {isVariable = false, value = "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/ProductFeature102", index = 3}
+                },
+                new Sample
+                {
+                    vid = TripletVid.dp,
+                    firstunknown = 2,
+                    subject = new TVariable {isVariable = true, value = "?product", index = 0},
+                    predicate = new TVariable {isVariable = false, value ="http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/productPropertyNumeric1"},
+                    obj = new TVariable {isVariable = true, value = "?value1", index = 4}
+                },
+                new Sample
+                {
+                    vid = TripletVid.dp,
+                    firstunknown = 3,
+                    subject = new TVariable {isVariable = true, value = "?product", index = 0},
+                    predicate = new TVariable {isVariable = false, value = "http://www.w3.org/2000/01/rdf-schema#label" },
+                    obj = new TVariable {isVariable = true, value = "?label", index = 5},
+                },
+                new FilterSample()
+                {
+                    Expression = vars => vars[3].IsDouble && vars[3].DoubleValue > 1000
+                }
             };
         }
 
-        public bool Match(GraphBase gr, IReceiver receive)
-        {
-            Match(gr, 0, receive);
-            return Success;
-        }
-
-        public bool Success;
         // Возвращает истину если сопоставление состоялось хотя бы один раз
         private void Match(GraphBase gr, int nextsample, IReceiver receive)
         {

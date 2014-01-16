@@ -79,6 +79,23 @@ namespace CommonRDF
         public string varName;
         public string varValue;
         public object NodeInfo;
+        public double DoubleValue;
+
+        public bool IsDouble
+        {
+            get
+            {
+                if (double.TryParse(varValue, out DoubleValue))
+                    return true;
+                DateTime dateTime;
+                if (DateTime.TryParse(varValue, out dateTime))
+                {
+                    DoubleValue = dateTime.Ticks;
+                    return true;
+                }
+                return false;
+            }
+        }
     }
     public enum TripletVid { op, dp }
     // Все значения, появляющиеся в строчках запросов или пременные или константы. Индекс - позиция в массиве DescrVar[] 
@@ -110,6 +127,5 @@ namespace CommonRDF
     class FilterSample : Sample
     {
         public Predicate<DescrVar[]> Expression;
-        public DescrVar[] parameters;
     }
 }

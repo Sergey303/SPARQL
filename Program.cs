@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 
@@ -19,9 +20,9 @@ namespace CommonRDF
             //gr.Load(@"..\..\PA\0001.xml");
 
         // Проект twomillions
-           GraphBase gr = new GraphTripletsTree(@"..\..\twomillions\");
+           GraphBase gr = new PolarBasedRdfGraph(new DirectoryInfo(@"..\..\bsbm\"));
            //Console.WriteLine("Graph ok duration=" + (DateTime.Now - tt0).Ticks / 10000L); tt0 = DateTime.Now;
-           //gr.Load(@"..\..\twomillions\tm_0.xml");
+           gr.Load(@"..\..\bsbm\dataset_10M.ttl");
            //return;
             
         // Проект Freebase3M
@@ -32,7 +33,7 @@ namespace CommonRDF
             //GraphBase gr = new GraphTripletsTree(@"..\..\???\");
             //gr.Load(@"???");
 
-           // gr.CreateGraph();
+            gr.CreateGraph();
             Console.WriteLine("Graph ok duration=" + (DateTime.Now - tt0).Ticks / 10000L); tt0 = DateTime.Now;
             //Console.WriteLine("Test ok duration========================" + (DateTime.Now - tt0).Ticks / 10000L); tt0 = DateTime.Now;
             

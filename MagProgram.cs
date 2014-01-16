@@ -53,14 +53,15 @@ namespace CommonRDF
             {
                 SimpleSparql sims = new SimpleSparql(person);
                 Restart();
-                sims.Match(gr, this);
+               //  sims.Match(gr, this);
                 //Perfomance.ComputeTime(() => sims.Match(gr, this), " mag test " + person + " ", true);
+                Perfomance.ComputeTime(() => sims.Match(gr, this), " mag test bsbm 1 ", true);
 
-                //foreach (var row in receive_list)
-                //{
-                //    foreach (var e in row) Console.WriteLine("{0} ", e);
-                //    Console.WriteLine();
-                //}
+                foreach (var row in receive_list)
+                {
+                    foreach (var e in row) Console.WriteLine("{0} ", e);
+                    Console.WriteLine();
+                }
             }
 
 

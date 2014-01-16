@@ -22,7 +22,7 @@ namespace CommonRDF
             if (!outputFile)
                 Console.WriteLine("{0} {1}ticks", mesage, timer.Elapsed.Ticks/10000L);
             else
-                using (StreamWriter file = new StreamWriter(@"D:\home\dev2012\CommonRDF\Perfomance.txt", true))
+                using (StreamWriter file = new StreamWriter(@"..\..\Perfomance.txt", true))
                     file.WriteLine("{0} {1}ticks", mesage, timer.Elapsed.Ticks/10000L);
         }
     }
