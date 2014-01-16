@@ -47,7 +47,12 @@ namespace CommonRDF
         {
             if(sDataIndex!=null)
             {
-                throw new Exception("xgasrhase");
+                sDataIndex.Close();
+                sDirectIndex.Close();
+                oIndex.Close();
+                spDataIndex.Close();
+                oIndex.Close();
+                spDirectIndex.Close();
             }
             sDataIndex = new FixedIndex<string>(path + "s of data", dataCell.Root, entry => (string) entry.Field(0).Get());
             sDirectIndex = new FixedIndex<string>(path + "s of direct", directCell.Root, entry => (string)entry.Field(0).Get());
