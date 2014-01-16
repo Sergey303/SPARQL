@@ -191,6 +191,11 @@ namespace CommonRDF
                 if (filter.Success)
                     Match(gr, nextsample + 1, receive);
                 return;
+            } if (sam is FilterSample)
+            {
+                if (((FilterSample)sam).Expression(testvars))
+                    Match(gr, nextsample + 1, receive);
+                return;
             }
             // Пока считаю предикаты известными. Вариантов 4: 0 - обе части неизвестны, 1 - субъект известен, 2 - объект известен, 3 - все известно
             int variant = (sam.subject.isVariable && sam.subject.index >= sam.firstunknown ? 0 : 1) +
