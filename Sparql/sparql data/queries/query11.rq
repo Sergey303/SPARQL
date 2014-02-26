@@ -1,0 +1,7 @@
+PREFIX dataFromVendor1: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromVendor1/>
+SELECT ?property ?hasValue ?isValueOf
+WHERE {
+  { dataFromVendor1:Offer1 ?property ?hasValue }
+  UNION
+  { ?isValueOf ?property dataFromVendor1:Offer1 }
+}

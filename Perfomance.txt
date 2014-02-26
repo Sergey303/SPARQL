@@ -5,6 +5,7 @@
  mag test bsbm 1  273ticks
  mag test bsbm 1  205ticks
  mag test bsbm 1  102ticks
+
  mag test bsbm 1  627ticks
  mag test bsbm 1  107ticks
  mag test bsbm 1  100ticks

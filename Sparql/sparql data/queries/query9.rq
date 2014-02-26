@@ -1,0 +1,4 @@
+PREFIX rev: <http://purl.org/stuff/rev#>
+PREFIX dataFromRatingSite1:  <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromRatingSite1/>
+DESCRIBE ?x
+WHERE { dataFromRatingSite1:Review1 rev:reviewer ?x }
